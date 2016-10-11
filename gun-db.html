@@ -64,7 +64,8 @@ webcomponent for GunDB
         gun = Gun({
           peers: this.peers ? this._validate(this.peers) : null,
           file: this.file ? this.file : 'data.json'
-        })
+        });
+        this._fire()
       },
       _validate:function(peers) {
         if(arguments.length !==1) {
@@ -83,7 +84,12 @@ webcomponent for GunDB
           // loading error 
           console.error('%s does not exists, did you run "bower install %s?',name,name.split('-')[1])
         });
-      }
+      },
+      _fire: function() {
+        this.async(function(){
+          console.log('gunlogic-io %cgun %cavailable',"color:blue","color:black")
+          this.fire('iron-signal',{name:'gun-loaded',data:{appName:this.appName}});
+      },500)  
 
 
     });
