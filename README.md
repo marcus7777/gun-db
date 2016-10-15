@@ -15,7 +15,7 @@ Then in your html
 ```
 <head>
 ...
-<link rel="import" href="bower_components/guntagger/chain-guntagger.html">
+<link rel="import" href="bower_components/gun-db/gun-db.html">
 ...
 </head>
 <body>
